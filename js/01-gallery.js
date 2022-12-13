@@ -3,34 +3,16 @@ import { galleryItems } from './gallery-items.js';
 
 console.log(galleryItems);
 
-const gallery = document.querySelector('.gallery');
-// console.log(gallery);
+const galleryTop = document.querySelector('.gallery');
 
-const divItem = document.createElement('div');
-divItem.classList.add('gallery__item');
-// console.log(divItem);
+const galleryAll = galleryItems.map((item) => {
+    `<div class="gallery__item">
+     <a class="gallery__link" href="${item.original}">
+     <img class="gallery__image" src="${item.preview}" data-source="${item.original}" alt="${item.description}"/>
+     </a>
+     </div>`
+});
 
-const aItem = document.createElement('a');
-aItem.classList.add('gallery__link');
-aItem.setAttribute('href', 'large-image.jpg');
-// console.log(aItem);
+galleryTop.insertAdjacentHTML('afterbegin', galleryAll);
 
-const pictureItem = document.createElement('img');
-pictureItem.classList.add('gallery__image');
-pictureItem.src = '';
-pictureItem.setAttribute('data-source', 'large-image.jpg');
-pictureItem.setAttribute('alt', 'Image description');
-// console.log(pictureItem);
-
-
-aItem.append(pictureItem);
-divItem.append(aItem);
-gallery.append(divItem);
-console.log(gallery);
-
-for (const galleryItem of galleryItems) {
-    pictureItem.src = galleryItem.preview;
-    pictureItem.alt = galleryItem.description;
-    pictureItem.dataset.source = galleryItem.original;
-    aItem.href = galleryItem.original;
-}
+console.log(galleryTop);
