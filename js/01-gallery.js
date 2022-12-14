@@ -13,11 +13,13 @@ const galleryAll = galleryItems.map((item) =>
     </div>`
 ).join("");
 
+// console.log(galleryAll);
+
 galleryTop.insertAdjacentHTML('afterbegin', galleryAll);
 
-const instance = basicLightbox.create(
-    `<a class="gallery__link" href="${item.original}"></a>`
-)
+// console.log(galleryTop);
+
+// const instance = basicLightbox.create()
 
 galleryTop.addEventListener('click', onClickGallery);
 function onClickGallery(event){
@@ -25,9 +27,13 @@ function onClickGallery(event){
         return;
     }
 
+    const bigPic = event.target.dataset.source;
+
+    const instance = basicLightbox.create(bigPic)
+
     instance.show();
 
-    console.log("Это картинка")
+    // console.log("Это картинка")
 }
 
 
