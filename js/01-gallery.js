@@ -1,7 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-// console.log(galleryItems);
+console.log(galleryItems);
 
 const galleryTop = document.querySelector('.gallery');
 
@@ -11,12 +11,9 @@ const galleryAll = galleryItems.map((item) =>
         <img class="gallery__image" src="${item.preview}" data-source="${item.original}" alt="${item.description}"/>
         </a>
     </div>`
-);
-
-
-
-console.log(galleryAll);
+).join("");
 
 galleryTop.insertAdjacentHTML('afterbegin', galleryAll);
 
-console.log(galleryTop);
+
+
