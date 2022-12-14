@@ -4,7 +4,6 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const galleryTop = document.querySelector('.gallery');
-const createdGalleryFn = createdGallery();
 
 function createdGallery() {
  return galleryItems.map((item) => 
@@ -15,6 +14,8 @@ function createdGallery() {
     </div>`
     ).join("");
 }
+
+const createdGalleryFn = createdGallery();
 
 galleryTop.insertAdjacentHTML('afterbegin', createdGalleryFn);
 
