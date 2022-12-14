@@ -29,11 +29,11 @@ function onClickGallery(event){
 
     const bigPic = event.target.dataset.source;
 
-    const instance = basicLightbox.create(bigPic)
-
+    const instance = basicLightbox.create(
+        `<img src="${bigPic}">`
+    )
     instance.show();
 
-    // console.log("Это картинка")
 }
 
 
