@@ -15,5 +15,20 @@ const galleryAll = galleryItems.map((item) =>
 
 galleryTop.insertAdjacentHTML('afterbegin', galleryAll);
 
+const instance = basicLightbox.create(
+    `<a class="gallery__link" href="${item.original}"></a>`
+)
+
+galleryTop.addEventListener('click', onClickGallery);
+function onClickGallery(event){
+    if (event.target.nodeName !== 'IMG') {
+        return;
+    }
+
+    instance.show();
+
+    console.log("Это картинка")
+}
+
 
 
