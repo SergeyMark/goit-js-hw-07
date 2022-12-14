@@ -34,7 +34,8 @@ function onClickGallery(event){
         `<img class="gallery__image" src="${srcPic}" alt="${altPic}">`
     )
     instance.show();
-
+    
+    
 }
 
 
