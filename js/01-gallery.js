@@ -27,10 +27,11 @@ function onClickGallery(event){
         return;
     }
 
-    const bigPic = event.target.dataset.source;
+    const srcPic = event.target.dataset.source;
+    const altPic = event.target.alt;
 
     const instance = basicLightbox.create(
-        `<img src="${bigPic}">`
+        `<img class="gallery__image" src="${srcPic}" alt="${altPic}">`
     )
     instance.show();
 
