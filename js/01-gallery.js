@@ -6,7 +6,6 @@ console.log(galleryItems);
 const galleryTop = document.querySelector('.gallery');
 const createdGalleryFn = createdGallery();
 
-
 function createdGallery() {
  return galleryItems.map((item) => 
    `<div class="gallery__item">
@@ -14,7 +13,7 @@ function createdGallery() {
         <img class="gallery__image" src="${item.preview}" data-source="${item.original}" alt="${item.description}"/>
         </a>
     </div>`
-).join("");
+    ).join("");
 }
 
 galleryTop.insertAdjacentHTML('afterbegin', createdGalleryFn);
@@ -34,7 +33,6 @@ function onClickGallery(event){
 
     instance.show();
     
-
 }
 
 
