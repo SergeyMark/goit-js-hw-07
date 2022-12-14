@@ -4,22 +4,20 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const galleryTop = document.querySelector('.gallery');
+const createdGalleryFn = createdGallery();
 
-const galleryAll = galleryItems.map((item) => 
+
+function createdGallery() {
+ return galleryItems.map((item) => 
    `<div class="gallery__item">
         <a class="gallery__link" href="${item.original}">
         <img class="gallery__image" src="${item.preview}" data-source="${item.original}" alt="${item.description}"/>
         </a>
     </div>`
 ).join("");
+}
 
-// console.log(galleryAll);
-
-galleryTop.insertAdjacentHTML('afterbegin', galleryAll);
-
-// console.log(galleryTop);
-
-// const instance = basicLightbox.create()
+galleryTop.insertAdjacentHTML('afterbegin', createdGalleryFn);
 
 galleryTop.addEventListener('click', onClickGallery);
 function onClickGallery(event){
@@ -33,9 +31,10 @@ function onClickGallery(event){
     const instance = basicLightbox.create(
         `<img class="gallery__image" src="${srcPic}" alt="${altPic}">`
     )
+
     instance.show();
     
-    
+
 }
 
 
