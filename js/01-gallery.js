@@ -30,13 +30,21 @@ function onClickGallery(event){
     const srcPic = event.target.dataset.source;
 
     const instance = basicLightbox.create(
-        `<img class="gallery__image" src="${srcPic}">`
+        `<img class="gallery__image" src="${srcPic}">`, 
+        {            
+            onShow: (instance) => {document.addEventListener('keydown', onEscapeKeyDown)},  
+            onClose: (instance) => {document.removeEventListener('keydown', onEscapeKeyDown)}
+        }
     )
 
-    instance.show();
+    function onEscapeKeyDown(event){
+        if(event.key !== 'Escape'){
+            return;
+        }
+        instance.close();
+    }
 
-    
-    
+    instance.show();    
 }
 
 
